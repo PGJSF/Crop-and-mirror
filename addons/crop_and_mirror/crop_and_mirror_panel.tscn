@@ -1,0 +1,267 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/crop_and_mirror/crop_and_mirror_panel.gd" id="1_panel"]
+
+[node name="DialogBoxPanel" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_panel")
+
+[node name="LeftColumn" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Toolbar" type="HBoxContainer" parent="LeftColumn"]
+layout_mode = 2
+
+[node name="LoadButton" type="Button" parent="LeftColumn/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Image"
+
+[node name="SelectAllButton" type="Button" parent="LeftColumn/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select All"
+
+[node name="ResetZoomButton" type="Button" parent="LeftColumn/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset Zoom"
+
+[node name="ZoomLabel" type="Label" parent="LeftColumn/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="SourceInfoLabel" type="Label" parent="LeftColumn/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No Image"
+clip_text = true
+
+[node name="LanguageOption" type="OptionButton" parent="LeftColumn/Toolbar"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Language"
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "한국어"
+popup/item_1/id = 1
+
+[node name="Canvas" type="Control" parent="LeftColumn"]
+unique_name_in_owner = true
+clip_contents = true
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HintLabel" type="Label" parent="LeftColumn"]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 2
+text = "Left-drag: select region · Red handles: resize edges · Right-drag: pan · Wheel: zoom"
+clip_text = true
+
+[node name="VSeparator1" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="MiddleColumn" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="RegionLabel" type="Label" parent="MiddleColumn"]
+layout_mode = 2
+text = "Region"
+
+[node name="RegionGrid" type="GridContainer" parent="MiddleColumn"]
+layout_mode = 2
+columns = 2
+
+[node name="XLabel" type="Label" parent="MiddleColumn/RegionGrid"]
+layout_mode = 2
+text = "X"
+
+[node name="XSpin" type="SpinBox" parent="MiddleColumn/RegionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 4096.0
+rounded = true
+suffix = "px"
+
+[node name="YLabel" type="Label" parent="MiddleColumn/RegionGrid"]
+layout_mode = 2
+text = "Y"
+
+[node name="YSpin" type="SpinBox" parent="MiddleColumn/RegionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 4096.0
+rounded = true
+suffix = "px"
+
+[node name="WLabel" type="Label" parent="MiddleColumn/RegionGrid"]
+layout_mode = 2
+text = "Width"
+
+[node name="WSpin" type="SpinBox" parent="MiddleColumn/RegionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 4096.0
+value = 1.0
+rounded = true
+suffix = "px"
+
+[node name="HLabel" type="Label" parent="MiddleColumn/RegionGrid"]
+layout_mode = 2
+text = "Height"
+
+[node name="HSpin" type="SpinBox" parent="MiddleColumn/RegionGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 4096.0
+value = 1.0
+rounded = true
+suffix = "px"
+
+[node name="HSeparator" type="HSeparator" parent="MiddleColumn"]
+layout_mode = 2
+
+[node name="MirrorHCheck" type="CheckBox" parent="MiddleColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Mirror H"
+
+[node name="MirrorVCheck" type="CheckBox" parent="MiddleColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Mirror V"
+
+[node name="CornerLabel" type="Label" parent="MiddleColumn"]
+layout_mode = 2
+text = "Source Corner"
+
+[node name="CornerOption" type="OptionButton" parent="MiddleColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Top-Left"
+popup/item_0/id = 0
+popup/item_1/text = "Top-Right"
+popup/item_1/id = 1
+popup/item_2/text = "Bottom-Left"
+popup/item_2/id = 2
+popup/item_3/text = "Bottom-Right"
+popup/item_3/id = 3
+
+[node name="OverlapHRow" type="HBoxContainer" parent="MiddleColumn"]
+layout_mode = 2
+
+[node name="OverlapHLabel" type="Label" parent="MiddleColumn/OverlapHRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Horizontal Overlap"
+
+[node name="OverlapHSpin" type="SpinBox" parent="MiddleColumn/OverlapHRow"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 32.0
+rounded = true
+suffix = "px"
+
+[node name="OverlapVRow" type="HBoxContainer" parent="MiddleColumn"]
+layout_mode = 2
+
+[node name="OverlapVLabel" type="Label" parent="MiddleColumn/OverlapVRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vertical Overlap"
+
+[node name="OverlapVSpin" type="SpinBox" parent="MiddleColumn/OverlapVRow"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 32.0
+rounded = true
+suffix = "px"
+
+[node name="OutputSizeLabel" type="Label" parent="MiddleColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Output Size: -"
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PreviewLabel" type="Label" parent="RightColumn"]
+layout_mode = 2
+text = "Live Preview"
+
+[node name="PreviewBg" type="Control" parent="RightColumn"]
+unique_name_in_owner = true
+clip_contents = true
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PreviewRect" type="TextureRect" parent="RightColumn/PreviewBg"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DestLabel" type="Label" parent="RightColumn"]
+layout_mode = 2
+text = "Output Path"
+
+[node name="DestPathEdit" type="LineEdit" parent="RightColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "res://path/to/source_full.png"
+
+[node name="ExportButton" type="Button" parent="RightColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Export Dialog Box Image"
+
+[node name="StatusLabel" type="Label" parent="RightColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 0
+filters = PackedStringArray("*.png, *.webp, *.jpg, *.jpeg, *.bmp, *.svg ; Images")

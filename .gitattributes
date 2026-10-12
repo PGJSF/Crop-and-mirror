@@ -1,0 +1,14 @@
+# Normalize line endings
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
+
+# Exclude everything by default from the downloadable ZIP (git archive)
+/** export-ignore
+
+# Re-include only the addons folder and its contents for distribution
+/addons !export-ignore
+/addons/** !export-ignore

@@ -1,0 +1,16 @@
+# Godot 4+ specific ignores
+.godot/
+*.translation
+
+# Mono / C# (if any)
+.mono/
+[Bb]in/
+[Oo]bj/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Note: *.uid files MUST be tracked in git for Godot 4.4+, so do not ignore them.
